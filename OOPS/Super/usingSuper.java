@@ -1,4 +1,4 @@
-package OOPS;
+package OOPS.Super;
 
 public class usingSuper {
     usingSuper(){
