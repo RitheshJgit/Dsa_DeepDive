@@ -1,5 +1,7 @@
 package ProblemSolving.Leetcode;
 
+import java.util.Arrays;
+
 public class MergeSortArray88_Easy {
     public static void main(String[] args) {
         int m = 3;
@@ -7,31 +9,34 @@ public class MergeSortArray88_Easy {
         int[] nums1 = {1, 2, 3, 0, 0, 0};
         int[] nums2 = {2, 5, 6};
 
-        mergeSortArray(nums1, m, nums2, n);
+        mergeInPlace(nums1, m, nums2, n);
     }
 
-    static void mergeSortArray(int[] nums1, int m, int[] nums2, int n) {
-            int i = 0;
-            int j = 0;
-            int k = 0;
+    static void mergeInPlace(int[] nums1, int m, int[] nums2, int n) {
 
-            // assign an array to store the final sorted elements
-            int[] mix = new int[nums1.length];
+        int i = m - 1;
+        int j = n - 1;
+        int k = n + m - 1;
 
-            while (i < nums1.length && j < nums2.length){
-                while (nums1[i] != 0 && nums1[i] < nums2[j]){
-                    mix[k] = nums1[i];
-                    k++;i++;
-                }
-                while (j < nums2.length && nums2[j] <= nums1[i]){
-                    mix[k] = nums2[j];
-                    k++;j++;
-                }
 
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) { // if nums[i] greater it sorted in last
+                nums1[k] = nums1[i];
+                k--;
+                i--;
+            } else {                   // if nums[j] greater it sorted in last
+                nums1[k] = nums2[j];
+                j--;
+                k--;
             }
+        }
 
-            while(i < nums1.length){
+        while (j >= 0) {           // if nums1 element sorted balance nums2 element sort in the front of nums1
+            nums1[k] = nums2[j];
+            k--;
+            j--;
+        }
 
-            }
+        System.out.println(Arrays.toString(nums1));
     }
 }
