@@ -1,4 +1,4 @@
-package ProblemSolving.Leetcode;
+package ProblemSolving.LeetCode150;
 
 public class removeDuplicates {
 
