@@ -16,7 +16,8 @@ public class subsequences {
     public static void main(String[] args)
     {
         String s = "abc";
-        findsubsequences(s, ""); // Calling a function
+
+//        findsubsequences(s, ""); // Calling a function
         System.out.println(al);
     }
 

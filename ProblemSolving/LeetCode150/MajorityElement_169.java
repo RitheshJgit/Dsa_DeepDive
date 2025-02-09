@@ -1,4 +1,9 @@
-class Solution {
+package ProblemSolving.LeetCode150;
+
+class MajorityElement_169 {
+    public static void main(String[] args) {
+
+    }
     public int majorityElement(int[] nums) {
         // Link - https://leetcode.com/problems/majority-element/?envType=study-plan-v2&envId=top-interview-150
         int count = 0;
