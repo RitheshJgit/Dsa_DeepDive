@@ -18,6 +18,20 @@ public class Ll {
     }
 
     // Insert the value in the empty Linked list
+
+
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(" -> " + temp.value);
+            temp = temp.next;
+        }
+        System.out.println();
+        System.out.println("Head - > : " + head.value + " Tail - > : " + tail.value);
+    }
+    
+
+    // INSERTION
     public void insertAtFirst(int val) {
         // Creating linked list
         Node node = new Node(val);
@@ -33,32 +47,6 @@ public class Ll {
 
         size += 1;
     }
-
-    public void display() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(" -> " + temp.value);
-            temp = temp.next;
-        }
-        System.out.println();
-        System.out.println("Head - > : " + head.value + " Tail - > : " + tail.value);
-    }
-
-    public void insertAtLast(int value) {
-        // create a node
-        Node temp = new Node(value);
-
-        // check if the node is empty
-        if (head == null) {
-            insertAtFirst(value);
-        }
-
-        tail.next = temp;
-        tail = temp;
-
-        size += 1;
-    }
-
     public void insertAfterMethod_1(int val, int index) {
         if (index == 0) {
             insertAtFirst(val);
@@ -85,6 +73,62 @@ public class Ll {
 
             size += 1;
         }
+    }
+    public void insertAtLast(int value) {
+        // create a node
+        Node temp = new Node(value);
+
+        // check if the node is empty
+        if (head == null) {
+            insertAtFirst(value);
+        }
+
+        tail.next = temp;
+        tail = temp;
+
+        size += 1;
+    }
+
+    // DELETION
+    public void deleteAtFirst(){
+
+        // move the head to delete the very first node
+        head = head.next;
+
+        // If we have only one Node
+        if(head == null){
+            tail = null;
+        }
+
+        size -= 1;
+    }
+
+    public void deleteAtLast(){
+        // if we have the one node use deleteFirst method
+        if(size == 1){
+            deleteAtFirst();
+        }
+
+        // Assign temp
+        Node temp = head;
+
+        // to reach the secondLast node
+        for (int i = 0; i < size - 2; i++) {
+            temp = temp.next;
+        }
+
+        // get last element value
+        int deletedValue = temp.next.value;
+
+        // bring tail to the secondLast Node
+        tail = temp;
+
+        // Print the deleted value
+        System.out.println(deletedValue);
+
+
+        tail.next = null;
+
     }
 
     // Ll contain Nodes
