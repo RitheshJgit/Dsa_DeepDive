@@ -29,7 +29,42 @@ public class Ll {
         System.out.println();
         System.out.println("Head - > : " + head.value + " Tail - > : " + tail.value);
     }
-    
+    public Node getIndex(int index){
+        if(index == 0){
+            return head;
+        }
+
+        Node temp = head;
+
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+
+        return temp;
+    }
+    public void find(int value){
+
+        // check for the Node existence
+        boolean isFound = false;
+        // handle the empty List
+        if(size ==0 ){
+            System.out.println("List is Empty");
+        }
+
+        else {
+            Node temp = head;
+            for (int i = 0; i < size; i++) {
+                if(temp.value == value){
+                    isFound = true;
+                    System.out.println("Node Found at : " + i);
+                }
+                temp = temp.next;
+            }
+            if(!isFound){
+                System.out.println("Can't find the Node");
+            }
+        }
+    }
 
     // INSERTION
     public void insertAtFirst(int val) {
@@ -102,7 +137,23 @@ public class Ll {
 
         size -= 1;
     }
+    public void deleteAtAny(int index){
+        if (index == 0) {
+            deleteAtFirst();
+        } else if (index == size) {
+            deleteAtLast();
+        }
+        else {
+            // get the previous Node
+            Node prevNode = getIndex(index);
 
+            // print the value of node deleted
+            System.out.println(prevNode.next.value);
+
+            // delete the element
+            prevNode.next = prevNode.next.next;
+        }
+    }
     public void deleteAtLast(){
         // if we have the one node use deleteFirst method
         if(size == 1){
