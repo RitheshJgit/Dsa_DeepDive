@@ -4,6 +4,7 @@ public class returnTheSmallestIndex {
     public static void main(String[] args) {
         int[] arr = {2, 3, 5, 9, 14, 16, 18};
         int target = 15;
+        System.out.println(binarySearch(arr, target));
     }
 
     public static int binarySearch(int[] arr, int target){
