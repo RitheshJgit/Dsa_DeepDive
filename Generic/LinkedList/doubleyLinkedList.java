@@ -39,7 +39,6 @@ public class doubleyLinkedList {
     }
 
     // Insertion
-
     public void insertAtFirst(int value) {
 
 // Method - 1 (Basic)
@@ -66,7 +65,6 @@ public class doubleyLinkedList {
         head = newNode;
         size += 1;
     }
-
     public void insertBetween(int index, int value) {
         Node temp = head;
         for (int i = 1; i <= index; i++) {
@@ -97,7 +95,6 @@ public class doubleyLinkedList {
 
         }
     }
-
     public void insertAtEnd(int value) {
         if (head == null) {
             insertAtFirst(value);
@@ -120,6 +117,7 @@ public class doubleyLinkedList {
         temp.next = null;
     }
 
+    // Reverse
     public void getReverse() {
         Node temp = head;
 
@@ -132,7 +130,6 @@ public class doubleyLinkedList {
             temp = temp.prev;
         }
     }
-
     public void reverse() {
         Node temp = head;
 
