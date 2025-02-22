@@ -1,4 +1,4 @@
-package LinkedList;
+package Generic.LinkedList;
 
 
 import java.util.LinkedList;
@@ -149,7 +149,7 @@ public class Ll {
             deleteAtLast();
         } else {
             // get the previous Node
-            Node prevNode = getIndex(index);
+            Node prevNode = getIndex(index - 1);
 
             // print the value of node deleted
             System.out.println(prevNode.next.value);
