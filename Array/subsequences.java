@@ -16,15 +16,13 @@ public class subsequences {
     public static void main(String[] args)
     {
         String s = "abc";
-
-//        findsubsequences(s, ""); // Calling a function
-        System.out.println(al);
+        findsubsequences(s,""); // Calling a function
     }
 
     private static void findsubsequences(String s, String ans)
     {
         if (s.length() == 0) {
-            al.add(ans);
+            System.out.println(ans);
             return;
         }
 

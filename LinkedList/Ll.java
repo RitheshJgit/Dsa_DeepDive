@@ -1,6 +1,8 @@
 package LinkedList;
 
 
+import java.util.LinkedList;
+
 // Linked List
 public class Ll {
     /*
@@ -29,8 +31,9 @@ public class Ll {
         System.out.println();
         System.out.println("Head - > : " + head.value + " Tail - > : " + tail.value);
     }
-    public Node getIndex(int index){
-        if(index == 0){
+
+    public Node getIndex(int index) {
+        if (index == 0) {
             return head;
         }
 
@@ -42,25 +45,24 @@ public class Ll {
 
         return temp;
     }
-    public void find(int value){
+
+    public void find(int value) {
 
         // check for the Node existence
         boolean isFound = false;
         // handle the empty List
-        if(size ==0 ){
+        if (size == 0) {
             System.out.println("List is Empty");
-        }
-
-        else {
+        } else {
             Node temp = head;
             for (int i = 0; i < size; i++) {
-                if(temp.value == value){
+                if (temp.value == value) {
                     isFound = true;
                     System.out.println("Node Found at : " + i);
                 }
                 temp = temp.next;
             }
-            if(!isFound){
+            if (!isFound) {
                 System.out.println("Can't find the Node");
             }
         }
@@ -82,6 +84,7 @@ public class Ll {
 
         size += 1;
     }
+
     public void insertAfterMethod_1(int val, int index) {
         if (index == 0) {
             insertAtFirst(val);
@@ -109,6 +112,7 @@ public class Ll {
             size += 1;
         }
     }
+
     public void insertAtLast(int value) {
         // create a node
         Node temp = new Node(value);
@@ -125,25 +129,25 @@ public class Ll {
     }
 
     // DELETION
-    public void deleteAtFirst(){
+    public void deleteAtFirst() {
 
         // move the head to delete the very first node
         head = head.next;
 
         // If we have only one Node
-        if(head == null){
+        if (head == null) {
             tail = null;
         }
 
         size -= 1;
     }
-    public void deleteAtAny(int index){
+
+    public void deleteAtAny(int index) {
         if (index == 0) {
             deleteAtFirst();
         } else if (index == size) {
             deleteAtLast();
-        }
-        else {
+        } else {
             // get the previous Node
             Node prevNode = getIndex(index);
 
@@ -154,9 +158,10 @@ public class Ll {
             prevNode.next = prevNode.next.next;
         }
     }
-    public void deleteAtLast(){
+
+    public void deleteAtLast() {
         // if we have the one node use deleteFirst method
-        if(size == 1){
+        if (size == 1) {
             deleteAtFirst();
         }
 
@@ -201,6 +206,39 @@ public class Ll {
             this.value = val;
             this.next = add;
         }
+    }
+
+    public static int cycleLength(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        int length = 0; // 6
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            length++;
+            if (slow == fast) {
+              break;
+            }
+        }
+
+        if(length == 0){
+            return 0;
+        }
+
+        Node s = head;
+        Node f = head;
+
+        while (length > 0) {
+            s = s.next;
+            length--;
+        }
+        while(f != s){
+            s =  s.next;
+            f = f.next;
+
+        }
+
     }
 
 }

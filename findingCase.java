@@ -1,18 +1,23 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class findingCase {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter Any Word : ");
-        char c = s.next().charAt(0);
-        if(c >= 'a' && c <= 'z'){
-            System.out.println("lowercase");
+        int extraCandies = 3;
+        int[] candies = {2,3,5,1,3};
+        ArrayList<Boolean> list= new ArrayList<>();
+        for (int i = 0; i < candies.length; i++) {
+            list.add(true);
         }
-        else if(c >= 'A' && c <= 'Z'){
-            System.out.println("UPPERCASE");
+        for(int i = 0 ; i < candies.length; i++){
+            int isGreater = candies[i] + extraCandies;
+            for(int j =0; j <  candies.length; j++){
+                if(isGreater < candies[j]){
+                    list.set(i, false);
+                }
+            }
         }
-        else {
-            System.out.println("Enter Any Word!!");
-        }
+        System.out.println(list);
     }
 }
+
